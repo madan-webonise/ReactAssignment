@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import './assets/styles/layout.css';
 
 class TodoList extends Component {
   render() {
     return (
       <ul>
-        <li>{this.props.helloWorld}</li>
+        {
+          this.props.displayList.map((value, key) => {
+            return(
+                <li key={key}>
+                  <p className="listItem">{value}</p>
+                  <button className="rmvBtn" onClick={this.removeItem}>X</button>
+                </li>
+            );
+          })
+        }
       </ul>
     );
   }

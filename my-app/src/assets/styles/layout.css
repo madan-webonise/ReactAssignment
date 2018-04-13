@@ -10,3 +10,6 @@
 .inputBox {
   padding: 10px;
 }
+.listItem, .rmvBtn {
+  display: inline-block;
+}
