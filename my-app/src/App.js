@@ -14,6 +14,15 @@ class App extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
+  componentDidMount() {
+    console.log('mounted');
+    let tempArray = [...this.state.todoArray];
+    tempArray.sort();
+    this.setState({
+      todoArray: tempArray
+    });
+  }
+
   addItem(event) {
     event.preventDefault();
     let insertElement = this.inputData.current;
@@ -31,14 +40,18 @@ class App extends Component {
 //delete functionality has to be done
 
   deleteItem(item) {
-    let tempArray = this.state.todoArray;
+    let tempArray = [...this.state.todoArray];
     let index = tempArray.indexOf(item);
     if(index > -1) {
       tempArray.splice(index, 1);
     }
+    this.setState({
+      todoArray: tempArray
+    });
   }
 
   render() {
+    console.log('rendered');
     return (
       <div className="App">
         <form onSubmit={this.addItem}>

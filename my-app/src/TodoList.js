@@ -10,7 +10,7 @@ class TodoList extends Component {
             return(
                 <li key={key}>
                   <p className="listItem">{value}</p>
-                  <button className="rmvBtn" onClick={this.removeItem}>X</button>
+                  <button className="rmvBtn" onClick={this.props.removeItem.bind(this, value)}>X</button>
                 </li>
             );
           })
