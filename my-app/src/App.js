@@ -14,15 +14,6 @@ class App extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  componentDidMount() {
-    console.log('mounted');
-    let tempArray = [...this.state.todoArray];
-    tempArray.sort();
-    this.setState({
-      todoArray: tempArray
-    });
-  }
-
   addItem(event) {
     event.preventDefault();
     let insertElement = this.inputData.current;
@@ -51,7 +42,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('rendered');
     return (
       <div className="App">
         <form onSubmit={this.addItem}>
@@ -61,10 +51,9 @@ class App extends Component {
                  className="inputBox"/>
           <button className="addBtn">Add Button</button>
         </form>
-        <TodoList displayList={this.state.todoArray} removeItem={this.deleteItem}/>
+        <TodoList displayList={this.state.todoArray} removeItem={this.deleteItem} />
       </div>
     );
   }
 }
-
 export default App;
