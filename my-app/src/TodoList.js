@@ -19,7 +19,7 @@ class TodoList extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className="listItemUl">
         {
           this.props.displayList.map((value, key) => {
             return(
